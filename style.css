@@ -1,0 +1,2148 @@
+/* =========================================================
+   UNIVERSO AMARILLO
+   STYLE.CSS COMPLETO
+   Optimizado para móvil / Galaxy S25 Ultra
+========================================================= */
+
+
+/* =========================================================
+   1. CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*
+       Márgenes seguros generales.
+
+       Además de env(safe-area-inset-*), dejamos espacio
+       extra para evitar que flores, textos y botones
+       queden pegados a los bordes.
+    */
+    --safe-top: max(22px, env(safe-area-inset-top));
+    --safe-right: max(18px, env(safe-area-inset-right));
+    --safe-bottom: max(22px, env(safe-area-inset-bottom));
+    --safe-left: max(18px, env(safe-area-inset-left));
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+
+    overflow: hidden;
+
+    background: #020204;
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    position: relative;
+
+    min-height: 100dvh;
+
+    overscroll-behavior: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Evita selección accidental */
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   2. CANVAS / UNIVERSO INICIAL
+========================================================= */
+
+#universo {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 75%,
+            rgba(128, 88, 0, 0.22) 0%,
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(45, 38, 100, 0.18) 0%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(112, 74, 0, 0.10) 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02030b 0%,
+            #060711 48%,
+            #100b03 100%
+        );
+}
+
+
+/* =========================================================
+   3. PANTALLAS GENERALES
+========================================================= */
+
+.pantalla {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    padding:
+        var(--safe-top)
+        var(--safe-right)
+        var(--safe-bottom)
+        var(--safe-left);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+.pantalla.activa {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   4. CONTENIDO INICIAL / FINAL
+========================================================= */
+
+.inicio-contenido,
+.final-contenido {
+    position: relative;
+
+    width: min(100%, 430px);
+
+    max-height: calc(
+        100dvh -
+        var(--safe-top) -
+        var(--safe-bottom)
+    );
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   5. GIRASOL DE LA PANTALLA INICIAL
+========================================================= */
+
+.florInicio {
+    display: block;
+
+    width: clamp(78px, 24vw, 118px);
+    height: clamp(78px, 24vw, 118px);
+
+    object-fit: contain;
+
+    margin: 0 auto 16px;
+
+    filter:
+        drop-shadow(
+            0 10px 14px rgba(0, 0, 0, 0.55)
+        )
+        drop-shadow(
+            0 0 16px rgba(255, 198, 31, 0.24)
+        );
+
+    animation:
+        florInicioFlotar
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   6. TEXTOS GENERALES
+========================================================= */
+
+.pequeno {
+    margin-bottom: 16px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 3.6px;
+
+    color: #f6d748;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 12px rgba(255, 202, 40, 0.3);
+}
+
+
+/* =========================================================
+   7. TÍTULO PRINCIPAL
+========================================================= */
+
+h1 {
+    margin-bottom: 27px;
+
+    font-size:
+        clamp(
+            47px,
+            14vw,
+            72px
+        );
+
+    line-height: 0.92;
+
+    font-weight: normal;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 4px 22px rgba(0, 0, 0, 0.55);
+}
+
+h1 span {
+    color: #f8d83e;
+
+    font-style: italic;
+
+    text-shadow:
+        0 0 22px rgba(255, 201, 25, 0.25);
+}
+
+
+/* =========================================================
+   8. INTRODUCCIÓN
+========================================================= */
+
+.intro {
+    width: min(100%, 350px);
+
+    margin:
+        0 auto
+        32px;
+
+    font-size:
+        clamp(
+            15px,
+            4.3vw,
+            17px
+        );
+
+    line-height: 1.65;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.78
+        );
+}
+
+
+/* =========================================================
+   9. BOTONES
+========================================================= */
+
+button {
+    position: relative;
+
+    min-width: 205px;
+
+    max-width: calc(100vw - 40px);
+
+    padding:
+        16px
+        27px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            221,
+            75,
+            0.72
+        );
+
+    border-radius: 999px;
+
+    outline: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 208, 48, 0.24),
+            rgba(255, 163, 0, 0.07)
+        );
+
+    color: #fff4ae;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 26px rgba(255, 194, 22, 0.14),
+        inset 0 0 20px rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+button:hover {
+    box-shadow:
+        0 0 34px rgba(255, 194, 22, 0.25),
+        inset 0 0 22px rgba(255, 255, 255, 0.07);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+   10. NOTAS
+========================================================= */
+
+.nota,
+.notaFinal {
+    margin-top: 17px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
+}
+
+
+/* =========================================================
+   11. EXPERIENCIA DE LOS 6 MENSAJES
+========================================================= */
+
+#experiencia {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   12. DECORACIÓN DEL FONDO
+========================================================= */
+
+.decoracionExperiencia {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* Estrellas PNG creadas por JavaScript */
+
+.estrellaExperiencia {
+    position: absolute;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    will-change:
+        transform,
+        opacity;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255, 200, 40, 0.48)
+        );
+
+    animation:
+        estrellaFlotando
+        var(--duracion, 7s)
+        ease-in-out
+        infinite;
+}
+
+
+/* Flores PNG del fondo */
+
+.florFondoExperiencia {
+    position: absolute;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    opacity: 0.18;
+
+    filter:
+        blur(var(--blur, 0px))
+        drop-shadow(
+            0 0 10px rgba(255, 190, 30, 0.15)
+        );
+
+    animation:
+        florFondoFlotando
+        var(--duracion, 10s)
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   13. MENSAJES
+========================================================= */
+
+.mensaje {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 5;
+
+    width: min(84vw, 390px);
+
+    max-height: 86dvh;
+
+    padding:
+        10px
+        12px;
+
+    transform:
+        translate(-50%, -43%)
+        scale(0.92);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    filter: blur(8px);
+
+    text-align: center;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        filter 1.5s ease,
+        visibility 1.5s ease;
+
+    pointer-events: none;
+}
+
+.mensaje.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    filter: blur(0);
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =========================================================
+   14. MENSAJE + FLOR
+========================================================= */
+
+.mensajeConFlor {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.florMensaje {
+    display: block;
+
+    width: clamp(100px, 30vw, 155px);
+    height: clamp(100px, 30vw, 155px);
+
+    max-height: 24dvh;
+
+    object-fit: contain;
+
+    transform-origin: center;
+
+    filter:
+        drop-shadow(
+            0 12px 15px rgba(0, 0, 0, 0.65)
+        )
+        drop-shadow(
+            0 0 14px rgba(255, 194, 24, 0.28)
+        );
+
+    animation:
+        florMensajeFlotar
+        4.3s
+        ease-in-out
+        infinite;
+}
+
+.florMensajeRosa {
+    width: clamp(95px, 28vw, 140px);
+    height: clamp(95px, 28vw, 140px);
+
+    animation-delay: -1.5s;
+}
+
+.textoMensaje {
+    width: 100%;
+
+    font-size:
+        clamp(
+            22px,
+            6vw,
+            34px
+        );
+
+    line-height: 1.22;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.95),
+        0 0 26px rgba(255, 205, 40, 0.11);
+}
+
+.textoMensaje strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #f8da47;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    text-shadow:
+        0 0 15px rgba(255, 194, 20, 0.25);
+}
+
+
+/* =========================================================
+   15. FLORES ASCENDENTES GENERADAS POR JS
+========================================================= */
+
+.flor {
+    position: fixed;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    object-fit: contain;
+
+    will-change: transform;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(255, 215, 45, 0.25)
+        );
+}
+
+
+/* =========================================================
+   16. PANTALLA PREVIA A "TOCA AQUÍ"
+========================================================= */
+
+#final {
+    z-index: 15;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(130, 90, 0, 0.20) 0%,
+            rgba(20, 13, 2, 0.08) 37%,
+            rgba(0, 0, 0, 0.44) 100%
+        );
+
+    backdrop-filter: blur(1px);
+}
+
+
+/* =========================================================
+   17. ESTRELLA DORADA
+========================================================= */
+
+.estrellaFinal {
+    display: block;
+
+    width:
+        clamp(
+            82px,
+            23vw,
+            120px
+        );
+
+    height:
+        clamp(
+            82px,
+            23vw,
+            120px
+        );
+
+    max-height: 15dvh;
+
+    object-fit: contain;
+
+    margin:
+        0 auto
+        9px;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(255, 200, 55, 0.30)
+        )
+        drop-shadow(
+            0 0 28px rgba(255, 169, 0, 0.14)
+        );
+
+    animation:
+        estrellaFinalFlotar
+        4.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   18. TÍTULO FINAL
+========================================================= */
+
+.final-contenido h2 {
+    margin-bottom: 19px;
+
+    font-size:
+        clamp(
+            35px,
+            9.5vw,
+            53px
+        );
+
+    line-height: 0.98;
+
+    font-weight: normal;
+
+    text-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+.final-contenido h2 span {
+    color: #f8d83e;
+
+    font-style: italic;
+}
+
+.final-contenido > p:not(.pequeno):not(.notaFinal) {
+    width: min(100%, 355px);
+
+    margin:
+        0 auto
+        18px;
+
+    font-size:
+        clamp(
+            14px,
+            3.8vw,
+            16px
+        );
+
+    line-height: 1.55;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.77
+        );
+}
+
+.final-contenido strong {
+    color: #ffe45c;
+}
+
+
+/* =========================================================
+   19. SEPARADOR
+========================================================= */
+
+.separador {
+    margin: 16px 0;
+
+    color: #f7d642;
+
+    font-size: 15px;
+
+    letter-spacing: 7px;
+
+    text-shadow:
+        0 0 12px rgba(255, 199, 30, 0.3);
+}
+
+
+/* =========================================================
+   20. TEXTO ANTES DEL BOTÓN
+========================================================= */
+
+.final-contenido h3 {
+    margin-bottom: 21px;
+
+    font-size:
+        clamp(
+            17px,
+            4.7vw,
+            21px
+        );
+
+    line-height: 1.25;
+
+    font-weight: normal;
+
+    color: #fff5b0;
+
+    text-shadow:
+        0 0 12px rgba(255, 206, 60, 0.15);
+}
+
+
+/* =========================================================
+   21. UNIVERSO FINAL
+========================================================= */
+
+#universoFinal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    touch-action: none;
+
+    perspective: 1000px;
+
+    background:
+        radial-gradient(
+            circle at 50% 56%,
+            #1b1001 0%,
+            #0a0602 22%,
+            #020204 58%,
+            #000000 100%
+        );
+
+    transition:
+        opacity 1.8s ease,
+        visibility 1.8s ease;
+}
+
+#universoFinal.activo {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   22. CANVAS DE LA GALAXIA
+========================================================= */
+
+#canvasGalaxia {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   23. CÁMARA 3D
+========================================================= */
+
+#camaraUniverso {
+    position: absolute;
+
+    /*
+       Dejamos un pequeño margen virtual adicional.
+       La cámara sigue ocupando toda la pantalla,
+       pero los elementos internos tienen posiciones
+       más conservadoras.
+    */
+
+    inset: 0;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    transform:
+        perspective(900px)
+        translate3d(0, 0, 0)
+        rotateX(0deg)
+        rotateY(0deg);
+
+    transform-origin: center center;
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   24. CAPA DE RAMOS
+========================================================= */
+
+#capaFlores {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+       Área segura interna.
+    */
+
+    padding:
+        var(--safe-top)
+        var(--safe-right)
+        var(--safe-bottom)
+        var(--safe-left);
+
+    transform-style: preserve-3d;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   25. ESTILO GENERAL DE LOS RAMOS
+========================================================= */
+
+.florUniverso {
+    position: absolute;
+
+    display: block;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    transform-origin: center center;
+
+    will-change:
+        transform,
+        translate,
+        rotate,
+        scale,
+        filter;
+
+    filter:
+        drop-shadow(
+            0 12px 18px rgba(0, 0, 0, 0.85)
+        )
+        drop-shadow(
+            0 0 11px rgba(255, 190, 30, 0.25)
+        );
+}
+
+.ramoUniverso {
+    /*
+       No dejamos que un ramo sea excesivamente grande
+       respecto al ancho de la pantalla.
+    */
+
+    max-width: 29vw;
+    max-height: 22dvh;
+
+    animation:
+        ramoFlotando
+        6s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   26. POSICIONES SEGURAS DE LOS RAMOS
+
+   Los alejamos más de los bordes para que el parallax
+   no los corte al mover el dedo.
+========================================================= */
+
+
+/* ARRIBA IZQUIERDA */
+
+.ramoGirasoles1 {
+    left: 8%;
+    top: 21%;
+
+    width:
+        clamp(
+            82px,
+            22vw,
+            138px
+        );
+
+    transform:
+        translateZ(80px)
+        rotate(-8deg);
+
+    animation-delay: -1s;
+}
+
+
+/* ARRIBA DERECHA */
+
+.ramoRosas1 {
+    right: 8%;
+    top: 24%;
+
+    width:
+        clamp(
+            78px,
+            21vw,
+            130px
+        );
+
+    transform:
+        translateZ(30px)
+        rotate(8deg);
+
+    animation-delay: -3s;
+}
+
+
+/* CENTRO IZQUIERDA */
+
+.ramoMixto1 {
+    left: 8%;
+    top: 46%;
+
+    width:
+        clamp(
+            82px,
+            22vw,
+            138px
+        );
+
+    transform:
+        translateZ(110px)
+        rotate(-5deg);
+
+    animation-delay: -2s;
+}
+
+
+/* CENTRO DERECHA */
+
+.ramoGirasoles2 {
+    right: 8%;
+    top: 49%;
+
+    width:
+        clamp(
+            70px,
+            19vw,
+            115px
+        );
+
+    opacity: 0.86;
+
+    transform:
+        translateZ(-40px)
+        rotate(7deg);
+
+    animation-delay: -4.5s;
+}
+
+
+/* ABAJO IZQUIERDA */
+
+.ramoRosas2 {
+    left: 9%;
+    bottom: 14%;
+
+    width:
+        clamp(
+            76px,
+            21vw,
+            126px
+        );
+
+    transform:
+        translateZ(65px)
+        rotate(8deg);
+
+    animation-delay: -2.7s;
+}
+
+
+/* ABAJO DERECHA */
+
+.ramoMixto2 {
+    right: 9%;
+    bottom: 13%;
+
+    width:
+        clamp(
+            74px,
+            20vw,
+            122px
+        );
+
+    opacity: 0.92;
+
+    transform:
+        translateZ(-10px)
+        rotate(-7deg);
+
+    animation-delay: -5s;
+}
+
+
+/* =========================================================
+   27. FRASES DEL UNIVERSO FINAL
+========================================================= */
+
+.fraseUniverso {
+    position: absolute;
+
+    z-index: 20;
+
+    /*
+       Más espacio horizontal que antes para las nuevas
+       frases personalizadas, pero sin tocar los bordes.
+    */
+
+    width: min(29vw, 138px);
+
+    min-width: 100px;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+
+    word-break: normal;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            10px,
+            2.8vw,
+            13px
+        );
+
+    line-height: 1.28;
+
+    font-style: italic;
+
+    color:
+        rgba(
+            255,
+            239,
+            180,
+            0.92
+        );
+
+    text-shadow:
+        0 2px 5px #000000,
+        0 0 9px rgba(255, 190, 30, 0.65);
+
+    opacity: 0.94;
+
+    transform-style: preserve-3d;
+
+    will-change:
+        transform,
+        translate;
+
+    pointer-events: none;
+}
+
+.fraseUniverso strong {
+    color: #ffe69b;
+
+    font-weight: normal;
+}
+
+.fraseUniverso span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #ffd75a;
+
+    font-size: 10px;
+
+    text-shadow:
+        0 0 10px #ffbd22;
+}
+
+
+/* =========================================================
+   28. POSICIONES SEGURAS DE LAS FRASES
+========================================================= */
+
+
+/* Superior izquierda */
+
+.frase1 {
+    left: 6%;
+    top: 8%;
+}
+
+
+/* Superior centro */
+
+.frase2 {
+    left: 50%;
+    top: 3.5%;
+
+    transform:
+        translateX(-50%)
+        translateZ(-30px);
+}
+
+
+/* Superior derecha */
+
+.frase3 {
+    right: 6%;
+    top: 9%;
+}
+
+
+/* Derecha media superior */
+
+.frase4 {
+    right: 6%;
+    top: 35%;
+}
+
+
+/* Derecha media inferior */
+
+.frase5 {
+    right: 6%;
+    top: 59%;
+}
+
+
+/* Izquierda media superior */
+
+.frase6 {
+    left: 6%;
+    top: 36%;
+}
+
+
+/* Izquierda media inferior */
+
+.frase7 {
+    left: 6%;
+    top: 61%;
+}
+
+
+/* Derecha inferior */
+
+.frase8 {
+    right: 6%;
+    top: 75%;
+}
+
+
+/* Inferior izquierda / centro */
+
+.frase9 {
+    left: 30%;
+    bottom: 6%;
+}
+
+
+/* Inferior derecha */
+
+.frase10 {
+    right: 5%;
+    bottom: 3%;
+}
+
+
+/* =========================================================
+   29. MENSAJE CENTRAL DEL UNIVERSO
+========================================================= */
+
+.mensajeCentralUniverso {
+    position: absolute;
+
+    z-index: 50;
+
+    left: 50%;
+
+    top:
+        max(
+            12%,
+            calc(
+                env(safe-area-inset-top)
+                + 48px
+            )
+        );
+
+    width:
+        min(
+            64vw,
+            285px
+        );
+
+    transform:
+        translateX(-50%)
+        translateY(14px);
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    filter: blur(7px);
+}
+
+#universoFinal.activo
+.mensajeCentralUniverso {
+    animation:
+        revelarMensajeUniverso
+        2s
+        1.1s
+        forwards;
+}
+
+.mensajeCentralUniverso small {
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3.5px;
+
+    line-height: 1.4;
+
+    color: #d9b642;
+
+    text-shadow:
+        0 0 10px rgba(255, 197, 40, 0.3);
+}
+
+.mensajeCentralUniverso h2 {
+    margin: 5px 0 8px;
+
+    font-size:
+        clamp(
+            31px,
+            8.5vw,
+            44px
+        );
+
+    line-height: 1;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    color: #ffe27a;
+
+    text-shadow:
+        0 0 15px rgba(255, 190, 30, 0.55),
+        0 3px 8px rgba(0, 0, 0, 0.75);
+}
+
+.mensajeCentralUniverso p {
+    font-size:
+        clamp(
+            10px,
+            2.7vw,
+            12px
+        );
+
+    line-height: 1.45;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.68
+        );
+
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.85);
+}
+
+.mensajeCentralUniverso strong {
+    color: #fff0ae;
+
+    font-weight: normal;
+}
+
+
+/* =========================================================
+   30. "DESLIZA PARA EXPLORAR"
+========================================================= */
+
+.instruccionUniverso {
+    position: absolute;
+
+    z-index: 60;
+
+    left: 50%;
+
+    bottom:
+        max(
+            15px,
+            calc(
+                env(safe-area-inset-bottom)
+                + 8px
+            )
+        );
+
+    transform:
+        translateX(-50%);
+
+    max-width: calc(100vw - 40px);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.8px;
+
+    color:
+        rgba(
+            255,
+            230,
+            140,
+            0.58
+        );
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.8);
+
+    animation:
+        respirarInstruccion
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+.instruccionUniverso span {
+    margin: 0 5px;
+
+    color: #e8bd3f;
+}
+
+
+/* =========================================================
+   31. ANIMACIONES
+========================================================= */
+
+
+/* GIRASOL DEL INICIO */
+
+@keyframes florInicioFlotar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(3deg)
+            scale(1.035);
+    }
+}
+
+
+/* FLORES DE LOS MENSAJES */
+
+@keyframes florMensajeFlotar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(4deg);
+    }
+}
+
+
+/* ESTRELLAS PNG */
+
+@keyframes estrellaFlotando {
+
+    0% {
+        opacity: 0.12;
+
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg)
+            scale(0.75);
+    }
+
+    50% {
+        opacity: 0.55;
+
+        transform:
+            translate3d(
+                var(--movX, 8px),
+                var(--movY, -14px),
+                0
+            )
+            rotate(12deg)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0.12;
+
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg)
+            scale(0.75);
+    }
+}
+
+
+/* FLORES DEL FONDO */
+
+@keyframes florFondoFlotando {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(-5deg)
+            scale(0.9);
+    }
+
+    50% {
+        transform:
+            translate3d(
+                var(--movX, 12px),
+                var(--movY, -18px),
+                0
+            )
+            rotate(7deg)
+            scale(1.03);
+    }
+}
+
+
+/* ESTRELLA FINAL */
+
+@keyframes estrellaFinalFlotar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg)
+            scale(1);
+
+        filter:
+            drop-shadow(
+                0 0 12px rgba(255, 200, 55, 0.30)
+            )
+            drop-shadow(
+                0 0 26px rgba(255, 169, 0, 0.12)
+            );
+    }
+
+    50% {
+        transform:
+            translateY(-9px)
+            rotate(2deg)
+            scale(1.04);
+
+        filter:
+            drop-shadow(
+                0 0 17px rgba(255, 211, 80, 0.48)
+            )
+            drop-shadow(
+                0 0 35px rgba(255, 169, 0, 0.20)
+            );
+    }
+}
+
+
+/* RAMOS DEL UNIVERSO */
+
+@keyframes ramoFlotando {
+
+    0%,
+    100% {
+        margin-top: 0;
+
+        filter:
+            drop-shadow(
+                0 12px 18px rgba(0, 0, 0, 0.85)
+            )
+            drop-shadow(
+                0 0 10px rgba(255, 190, 30, 0.20)
+            );
+    }
+
+    50% {
+        margin-top: -8px;
+
+        filter:
+            drop-shadow(
+                0 16px 20px rgba(0, 0, 0, 0.82)
+            )
+            drop-shadow(
+                0 0 15px rgba(255, 194, 35, 0.34)
+            );
+    }
+}
+
+
+/* MENSAJE CENTRAL */
+
+@keyframes revelarMensajeUniverso {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(14px);
+
+        filter: blur(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+        filter: blur(0);
+    }
+}
+
+
+/* INSTRUCCIÓN */
+
+@keyframes respirarInstruccion {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.95;
+    }
+}
+
+
+/* =========================================================
+   32. MÓVILES GRANDES Y ALTOS
+   Galaxy S25 Ultra / dispositivos similares
+========================================================= */
+
+@media
+    (min-width: 400px)
+    and (max-width: 520px)
+    and (min-height: 800px) {
+
+    /*
+       En teléfonos altos tenemos más espacio vertical.
+       Lo aprovechamos sin acercarnos demasiado a los bordes.
+    */
+
+    .inicio-contenido,
+    .final-contenido {
+        width: min(88vw, 430px);
+    }
+
+
+    .florInicio {
+        width: 112px;
+        height: 112px;
+    }
+
+
+    .mensaje {
+        width: min(82vw, 400px);
+    }
+
+
+    .florMensaje {
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .florMensajeRosa {
+        width: 135px;
+        height: 135px;
+    }
+
+
+    /*
+       RAMOS
+
+       El margen lateral es deliberadamente mayor.
+       Esto permite que JS aplique parallax sin
+       sacarlos de pantalla.
+    */
+
+    .ramoGirasoles1 {
+        left: 9%;
+        top: 21%;
+    }
+
+
+    .ramoRosas1 {
+        right: 9%;
+        top: 25%;
+    }
+
+
+    .ramoMixto1 {
+        left: 9%;
+        top: 46%;
+    }
+
+
+    .ramoGirasoles2 {
+        right: 9%;
+        top: 49%;
+    }
+
+
+    .ramoRosas2 {
+        left: 10%;
+        bottom: 14%;
+    }
+
+
+    .ramoMixto2 {
+        right: 10%;
+        bottom: 13%;
+    }
+
+
+    /*
+       FRASES
+    */
+
+    .frase1,
+    .frase6,
+    .frase7 {
+        left: 7%;
+    }
+
+
+    .frase3,
+    .frase4,
+    .frase5,
+    .frase8 {
+        right: 7%;
+    }
+
+
+    .frase10 {
+        right: 6%;
+    }
+}
+
+
+/* =========================================================
+   33. CELULARES ESTRECHOS
+========================================================= */
+
+@media (max-width: 390px) {
+
+    :root {
+        --safe-right:
+            max(
+                14px,
+                env(safe-area-inset-right)
+            );
+
+        --safe-left:
+            max(
+                14px,
+                env(safe-area-inset-left)
+            );
+    }
+
+
+    .pantalla {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+
+    .pequeno {
+        letter-spacing: 2.8px;
+    }
+
+
+    .fraseUniverso {
+        width: 27vw;
+
+        min-width: 88px;
+
+        font-size:
+            clamp(
+                9px,
+                2.65vw,
+                11px
+            );
+    }
+
+
+    .frase1,
+    .frase6,
+    .frase7 {
+        left: 5%;
+    }
+
+
+    .frase3,
+    .frase4,
+    .frase5,
+    .frase8,
+    .frase10 {
+        right: 5%;
+    }
+
+
+    .ramoGirasoles1 {
+        left: 6%;
+    }
+
+
+    .ramoRosas1 {
+        right: 6%;
+    }
+
+
+    .ramoMixto1 {
+        left: 6%;
+    }
+
+
+    .ramoGirasoles2 {
+        right: 6%;
+    }
+
+
+    .ramoRosas2 {
+        left: 7%;
+    }
+
+
+    .ramoMixto2 {
+        right: 7%;
+    }
+}
+
+
+/* =========================================================
+   34. CELULARES BAJOS
+========================================================= */
+
+@media (max-height: 700px) {
+
+    .florInicio {
+        width: 72px;
+        height: 72px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .pequeno {
+        margin-bottom: 8px;
+    }
+
+
+    h1 {
+        margin-bottom: 15px;
+    }
+
+
+    .intro {
+        margin-bottom: 17px;
+
+        line-height: 1.42;
+    }
+
+
+    .florMensaje {
+        width: 90px;
+        height: 90px;
+    }
+
+
+    .florMensajeRosa {
+        width: 84px;
+        height: 84px;
+    }
+
+
+    .textoMensaje {
+        font-size:
+            clamp(
+                19px,
+                5.4vw,
+                28px
+            );
+    }
+
+
+    .estrellaFinal {
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 3px;
+    }
+
+
+    .final-contenido h2 {
+        margin-bottom: 10px;
+
+        font-size:
+            clamp(
+                31px,
+                8vw,
+                44px
+            );
+    }
+
+
+    .final-contenido > p:not(.pequeno):not(.notaFinal) {
+        margin-bottom: 9px;
+
+        font-size: 13px;
+
+        line-height: 1.36;
+    }
+
+
+    .separador {
+        margin: 8px 0;
+    }
+
+
+    .final-contenido h3 {
+        margin-bottom: 11px;
+    }
+
+
+    .mensajeCentralUniverso {
+        top: 8%;
+    }
+
+
+    .fraseUniverso {
+        font-size: 9px;
+    }
+
+
+    .ramoUniverso {
+        max-height: 19dvh;
+    }
+
+
+    .frase9 {
+        bottom: 8%;
+    }
+
+
+    .frase10 {
+        bottom: 4%;
+    }
+}
+
+
+/* =========================================================
+   35. PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media (max-width: 350px) {
+
+    .fraseUniverso {
+        width: 26vw;
+
+        min-width: 78px;
+
+        font-size: 8.3px;
+    }
+
+
+    .fraseUniverso span {
+        font-size: 8px;
+    }
+
+
+    .mensajeCentralUniverso {
+        width: 60vw;
+    }
+
+
+    .ramoUniverso {
+        max-width: 25vw;
+    }
+
+
+    .ramoGirasoles1,
+    .ramoMixto1 {
+        left: 5%;
+    }
+
+
+    .ramoRosas1,
+    .ramoGirasoles2 {
+        right: 5%;
+    }
+}
+
+
+/* =========================================================
+   36. MODO HORIZONTAL
+========================================================= */
+
+@media (orientation: landscape) {
+
+    .inicio-contenido,
+    .final-contenido {
+        transform: scale(0.82);
+    }
+
+
+    .mensaje {
+        transform:
+            translate(-50%, -50%)
+            scale(0.82);
+    }
+
+
+    .mensaje.visible {
+        transform:
+            translate(-50%, -50%)
+            scale(0.88);
+    }
+
+
+    .ramoUniverso {
+        max-height: 30vh;
+        max-width: 20vw;
+    }
+
+
+    .mensajeCentralUniverso {
+        top: 5%;
+
+        width: 40vw;
+    }
+}
+
+
+/* =========================================================
+   37. REDUCIR MOVIMIENTO
+========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .florInicio,
+    .florMensaje,
+    .estrellaFinal,
+    .ramoUniverso,
+    .instruccionUniverso,
+    .estrellaExperiencia,
+    .florFondoExperiencia {
+        animation-duration: 12s;
+    }
+}

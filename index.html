@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no,
+                 viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#02030b">
+
+    <meta
+        name="description"
+        content="Un universo amarillo hecho especialmente para Nayelly."
+    >
+
+    <title>Un universo para Nayelly 💛</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ETAPA 1
+         UNIVERSO / FONDO INICIAL
+    ====================================================== -->
+
+    <canvas id="universo"></canvas>
+
+
+
+    <!-- =====================================================
+         PANTALLA DE BIENVENIDA
+    ====================================================== -->
+
+    <section
+        id="inicio"
+        class="pantalla activa"
+    >
+
+        <div class="inicio-contenido">
+
+
+            <!-- Flor principal -->
+
+            <img
+                src="assets/girasol.png"
+                alt="Girasol amarillo"
+                class="florInicio"
+                draggable="false"
+            >
+
+
+            <p class="pequeno">
+
+                21 DE SEPTIEMBRE · PARA NAYELLY
+
+            </p>
+
+
+            <h1>
+
+                Tengo algo
+
+                <br>
+
+                <span>
+                    para ti
+                </span>
+
+            </h1>
+
+
+            <p class="intro">
+
+                Dicen que hoy se regalan
+                flores amarillas...
+
+                <br><br>
+
+                pero para ti,
+                mi ojitos bonitos,
+                un ramo me parecía
+                muy poquito.
+
+            </p>
+
+
+            <button
+                id="btnComenzar"
+                type="button"
+            >
+
+                ✨ Abrir mi universo ✨
+
+            </button>
+
+
+            <p class="nota">
+
+                Sube el volumen 💛
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ETAPA 2
+         VIAJE DE LOS 6 MENSAJES
+
+         Aquí utilizamos:
+         - girasol.png
+         - rosa_amarilla.png
+         - estrella_dorada.png en el fondo mediante JS
+    ====================================================== -->
+
+    <section
+        id="experiencia"
+        aria-hidden="true"
+    >
+
+
+        <!-- =================================================
+             DECORACIÓN DEL FONDO
+
+             JavaScript coloca aquí estrellas doradas,
+             girasoles y rosas individuales.
+        ================================================== -->
+
+        <div
+            id="decoracionExperiencia"
+            class="decoracionExperiencia"
+        ></div>
+
+
+
+        <!-- =================================================
+             MENSAJE 1
+             GIRASOL
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje1"
+        >
+
+            <img
+                src="assets/girasol.png"
+                alt=""
+                class="florMensaje florMensajeGirasol"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Dicen que hoy se regalan
+
+                <strong>
+                    flores amarillas...
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE 2
+             ROSA
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje2"
+        >
+
+            <img
+                src="assets/rosa_amarilla.png"
+                alt=""
+                class="florMensaje florMensajeRosa"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Pero cuando pensé en ti,
+                Tallis...
+
+                <strong>
+                    un ramo me pareció
+                    muy poquito.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE 3
+             GIRASOL
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje3"
+        >
+
+            <img
+                src="assets/girasol.png"
+                alt=""
+                class="florMensaje florMensajeGirasol"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Porque alguien tan
+                especial para mí
+
+                <strong>
+                    merecía algo un poquito
+                    más grande.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE 4
+             ROSA
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje4"
+        >
+
+            <img
+                src="assets/rosa_amarilla.png"
+                alt=""
+                class="florMensaje florMensajeRosa"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Una flor por cada momento
+
+                <strong>
+                    en el que me has
+                    hecho feliz.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE 5
+             GIRASOL
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje5"
+        >
+
+            <img
+                src="assets/girasol.png"
+                alt=""
+                class="florMensaje florMensajeGirasol"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Otra por cada vez que veo
+
+                <strong>
+                    esos ojitos bonitos
+                    que tanto me encantan.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE 6
+             ROSA
+        ================================================== -->
+
+        <div
+            class="mensaje mensajeConFlor"
+            id="mensaje6"
+        >
+
+            <img
+                src="assets/rosa_amarilla.png"
+                alt=""
+                class="florMensaje florMensajeRosa"
+                draggable="false"
+            >
+
+            <div class="textoMensaje">
+
+                Y millones más por todos
+                los momentos
+
+                <strong>
+                    que todavía quiero
+                    vivir contigo. 💛
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ETAPA 3
+         PANTALLA ANTES DE LA GRAN SORPRESA
+    ====================================================== -->
+
+    <section
+        id="final"
+        class="pantalla"
+    >
+
+        <div class="final-contenido">
+
+
+            <!-- Estrella dorada -->
+
+            <img
+                src="assets/estrella_dorada.png"
+                alt="Estrella dorada"
+                class="estrellaFinal"
+                draggable="false"
+            >
+
+
+            <p class="pequeno">
+
+                PARA NAYELLY
+
+            </p>
+
+
+            <h2>
+
+                Tu propio
+
+                <br>
+
+                <span>
+                    universo amarillo
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Podría regalarte flores...
+
+                <br><br>
+
+                pero quería regalarte algo
+                que se pareciera un poquito más
+                a lo que significas para mí:
+
+                <br><br>
+
+                <strong>
+
+                    algo enorme, bonito
+                    y difícil de explicar
+                    con palabras.
+
+                </strong>
+
+            </p>
+
+
+            <div class="separador">
+
+                ✦ 🌻 ✦
+
+            </div>
+
+
+            <h3>
+
+                Para ti,
+                mi ojitos bonitos 💛
+
+            </h3>
+
+
+            <button
+                id="btnSorpresa"
+                type="button"
+            >
+
+                Toca aquí 💛
+
+            </button>
+
+
+            <p class="notaFinal">
+
+                Todavía falta algo...
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ETAPA 4
+         UNIVERSO FINAL 3D
+
+         Aquí aparecen:
+         - Agujero negro
+         - Galaxia
+         - Ramos
+         - Mensajes románticos
+         - Movimiento 3D con el dedo
+    ====================================================== -->
+
+    <section
+        id="universoFinal"
+        aria-hidden="true"
+    >
+
+
+        <!-- =================================================
+             GALAXIA GENERADA CON JAVASCRIPT
+        ================================================== -->
+
+        <canvas id="canvasGalaxia"></canvas>
+
+
+
+        <!-- =================================================
+             CÁMARA 3D
+
+             Todo lo que esté dentro reaccionará
+             al movimiento del dedo.
+        ================================================== -->
+
+        <div id="camaraUniverso">
+
+
+            <!-- =================================================
+                 CAPA DE RAMOS
+            ================================================== -->
+
+            <div id="capaFlores">
+
+
+                <!-- Ramo de girasoles -->
+
+                <img
+                    src="assets/ramo_girasoles.png"
+                    alt=""
+                    id="ramoGirasoles1"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoGirasoles1
+                    "
+                    data-profundidad="1.25"
+                    draggable="false"
+                >
+
+
+                <!-- Ramo de rosas amarillas -->
+
+                <img
+                    src="assets/ramo_rosas_amarillas.png"
+                    alt=""
+                    id="ramoRosas1"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoRosas1
+                    "
+                    data-profundidad="0.75"
+                    draggable="false"
+                >
+
+
+                <!-- Ramo mixto -->
+
+                <img
+                    src="assets/ramo_mixto.png"
+                    alt=""
+                    id="ramoMixto1"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoMixto1
+                    "
+                    data-profundidad="1.50"
+                    draggable="false"
+                >
+
+
+                <!-- Segundo ramo de girasoles -->
+
+                <img
+                    src="assets/ramo_girasoles.png"
+                    alt=""
+                    id="ramoGirasoles2"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoGirasoles2
+                    "
+                    data-profundidad="0.55"
+                    draggable="false"
+                >
+
+
+                <!-- Segundo ramo de rosas amarillas -->
+
+                <img
+                    src="assets/ramo_rosas_amarillas.png"
+                    alt=""
+                    id="ramoRosas2"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoRosas2
+                    "
+                    data-profundidad="1.05"
+                    draggable="false"
+                >
+
+
+                <!-- Segundo ramo mixto -->
+
+                <img
+                    src="assets/ramo_mixto.png"
+                    alt=""
+                    id="ramoMixto2"
+                    class="
+                        florUniverso
+                        ramoUniverso
+                        ramoMixto2
+                    "
+                    data-profundidad="0.65"
+                    draggable="false"
+                >
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MENSAJES ROMÁNTICOS DEL UNIVERSO
+            ================================================== -->
+
+
+            <!-- FRASE 1 -->
+
+            <div
+                class="fraseUniverso frase1"
+                data-profundidad="0.35"
+            >
+
+                Gracias por convertirte en
+
+                <br>
+
+                <strong>
+                    mi lugar favorito
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 2 -->
+
+            <div
+                class="fraseUniverso frase2"
+                data-profundidad="0.25"
+            >
+
+                Contigo hasta los días normales
+
+                <br>
+
+                <strong>
+                    se sienten especiales
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 3 -->
+
+            <div
+                class="fraseUniverso frase3"
+                data-profundidad="0.45"
+            >
+
+                Tu sonrisa ilumina
+
+                <br>
+
+                <strong>
+                    mi universo
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 4 -->
+
+            <div
+                class="fraseUniverso frase4"
+                data-profundidad="0.30"
+            >
+
+                Nayelly, eres una de las partes
+
+                <br>
+
+                <strong>
+                    más bonitas de mi vida
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 5 -->
+
+            <div
+                class="fraseUniverso frase5"
+                data-profundidad="0.55"
+            >
+
+                Si pudiera elegir otra vez
+
+                <br>
+
+                <strong>
+                    volvería a elegirte a ti
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 6 -->
+
+            <div
+                class="fraseUniverso frase6"
+                data-profundidad="0.40"
+            >
+
+                A tu lado
+
+                <br>
+
+                <strong>
+                    la vida se siente más bonita
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 7 -->
+
+            <div
+                class="fraseUniverso frase7"
+                data-profundidad="0.50"
+            >
+
+                Me encanta la persona
+
+                <br>
+
+                <strong>
+                    que soy cuando estoy contigo
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 8 -->
+
+            <div
+                class="fraseUniverso frase8"
+                data-profundidad="0.35"
+            >
+
+                Tallis, contigo quiero
+
+                <br>
+
+                <strong>
+                    muchísimos mañanas más
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 9 -->
+
+            <div
+                class="fraseUniverso frase9"
+                data-profundidad="0.30"
+            >
+
+                Mi ojitos bonitos,
+
+                <br>
+
+                <strong>
+                    eres mi hoy y mi siempre
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+
+            <!-- FRASE 10 -->
+
+            <div
+                class="fraseUniverso frase10"
+                data-profundidad="0.45"
+            >
+
+                Te amo más de lo que
+
+                <br>
+
+                <strong>
+                    este universo puede explicar
+                </strong>
+
+                <span>♥</span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENSAJE CENTRAL DEL UNIVERSO
+        ================================================== -->
+
+        <div class="mensajeCentralUniverso">
+
+
+            <small>
+
+                EL UNIVERSO DE NAYELLY
+
+            </small>
+
+
+            <h2>
+
+                Te amo, Tallis
+
+            </h2>
+
+
+            <p>
+
+                Y si pudiera regalarte
+                algo infinito...
+
+                <br>
+
+                <strong>
+
+                    sería todo esto
+                    que siento por ti.
+
+                </strong>
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             INSTRUCCIÓN
+        ================================================== -->
+
+        <div class="instruccionUniverso">
+
+            <span>✦</span>
+
+            Desliza para explorar
+
+            <span>✦</span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MÚSICA
+    ====================================================== -->
+
+    <audio
+        id="musica"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="assets/musica.mp3"
+            type="audio/mpeg"
+        >
+
+        Tu navegador no soporta audio.
+
+    </audio>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
